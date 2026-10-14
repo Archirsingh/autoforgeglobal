@@ -467,12 +467,264 @@
                 grid-template-columns: 1fr !important;
             }
         }
+
+        .language-selector { display:flex; align-items:center; gap:8px; margin-left:20px; }
+        .language-selector label { font-size:13px; color:#222; }
+        .language-selector select { padding:8px 10px; border:1px solid #bbb; border-radius:4px; background:white; color:#222; font-size:14px; cursor:pointer; }
+        @media (max-width:800px) {
+            header { flex-wrap:wrap; }
+            .language-selector { margin-left:auto; }
+        }
+
+    
+        /* MOBILE LAYOUT FIXES */
+        @media (max-width: 800px) {
+            header {
+                position: relative;
+                padding: 10px 5%;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .logo img {
+                width: min(190px, 100%);
+            }
+
+            header nav {
+                display: flex;
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-content: space-between;
+                gap: 12px;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            header nav a {
+                font-size: 14px;
+                padding: 4px 0;
+            }
+
+            .language-selector {
+                grid-column: 2;
+                grid-row: 1;
+                margin: 0;
+                gap: 5px;
+            }
+
+            .language-selector label {
+                font-size: 12px;
+            }
+
+            .language-selector select {
+                max-width: 112px;
+                padding: 7px 6px;
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 0;
+                padding: 65px 6% 60px;
+                background-position: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: clamp(34px, 8vw, 46px);
+                line-height: 1.04;
+                margin-bottom: 22px;
+                overflow-wrap: normal;
+            }
+
+            .hero p {
+                font-size: 16px;
+                line-height: 1.55;
+                margin-bottom: 25px;
+            }
+
+            .buttons {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .section-title {
+                font-size: clamp(29px, 7vw, 40px);
+                line-height: 1.08;
+                margin-bottom: 18px;
+            }
+
+            .section-intro {
+                font-size: 16px;
+                line-height: 1.55;
+            }
+
+            .about {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 28px;
+                align-items: start;
+            }
+
+            .about-box {
+                padding: 20px 22px;
+                margin: 0;
+            }
+
+            .about-main-text {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+
+            .about-points {
+                gap: 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 16px;
+                margin-top: 30px;
+            }
+
+            .product-card {
+                min-height: 0;
+                padding: 25px;
+            }
+
+            .product-number {
+                margin-bottom: 20px;
+            }
+
+            .product-card h3 {
+                font-size: 24px;
+            }
+
+            .why-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 14px !important;
+                margin-top: 30px !important;
+            }
+
+            .why-card {
+                min-height: 0 !important;
+                padding: 20px !important;
+            }
+
+            .why-card h3 {
+                font-size: 17px;
+                line-height: 1.25;
+                margin-bottom: 10px !important;
+            }
+
+            .why-card p,
+            .process-step p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .process-step {
+                padding: 18px 8px;
+            }
+
+            .process-step h3 {
+                font-size: 18px;
+                line-height: 1.25;
+            }
+
+            .market-list {
+                margin-top: 28px;
+                gap: 10px;
+            }
+
+            .market {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .contact input,
+            .contact textarea {
+                padding: 14px;
+                font-size: 16px;
+            }
+
+            footer {
+                padding: 35px 6%;
+                gap: 20px;
+            }
+
+            footer .logo img {
+                width: min(200px, 100%);
+            }
+        }
+
+        @media (max-width: 420px) {
+            header {
+                padding: 10px 4%;
+            }
+
+            .logo img {
+                width: 155px;
+            }
+
+            .language-selector label {
+                display: none;
+            }
+
+            .language-selector select {
+                max-width: 105px;
+            }
+
+            header nav {
+                gap: 8px;
+            }
+
+            header nav a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 48px 6% 48px;
+            }
+
+            .hero h1 {
+                font-size: clamp(32px, 8.2vw, 38px);
+            }
+
+            .buttons .btn {
+                flex: 1 1 auto;
+                text-align: center;
+                padding: 12px 10px;
+            }
+
+            .why-grid,
+            .process-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .why-card {
+                padding: 22px !important;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-<header>
+<header id="top">
     <div class="logo">
         <img src="images/logo.png" alt="AutoForgeGlobal">
     </div>
@@ -483,6 +735,14 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
+    <div class="language-selector">
+        <label for="languageSelect" data-lang="label">Language</label>
+        <select id="languageSelect" aria-label="Select website language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+        </select>
+    </div>
 </header>
 
 
@@ -815,7 +1075,9 @@
 <footer>
 
     <div class="logo">
-        <img src="images/logo.png" alt="AutoForgeGlobal">
+        <a href="#top" aria-label="Back to top" title="Back to top">
+            <img src="images/logo.png" alt="AutoForgeGlobal — back to top">
+        </a>
     </div>
 
     <div>
@@ -824,6 +1086,124 @@
 
 </footer>
 
+
+
+<script>
+const pageTranslations = {
+en: {
+ language:"Language", nav:["Home","Products","About","Contact"],
+ heroTitle:"Quality Auto Parts.<br>Global Reach.",
+ heroText:"AutoForgeGlobal is a trusted partner in the global sourcing and supply of quality automobile parts. We connect reliable suppliers with customers across international markets.",
+ explore:"Explore Products", quote:"Request a Quote", aboutTitle:"Reliable Parts.<br>Global Supply.",
+ aboutIntro:"AutoForgeGlobal connects trusted automotive parts suppliers with buyers across international markets.",
+ aboutMain:"We specialize in sourcing and supplying quality automobile parts for businesses worldwide, with a focus on reliable suppliers, competitive pricing and efficient global trade.",
+ aboutPoints:["Global Sourcing","Connecting buyers with reliable suppliers.","Quality Focus","Products sourced with business requirements in mind.","International Trade","Supporting efficient cross-border supply."],
+ productsTitle:"Our Automotive<br>Parts Range", productsIntro:"Explore our range of automobile parts for passenger vehicles, commercial vehicles and automotive businesses.",
+ productNames:["Engine Parts","Brake Components","Suspension & Steering","Electrical & Electronics","Transmission Parts","Body & Exterior"],
+ productDesc:["Engine components and parts for passenger and commercial vehicles.","Brake pads, discs and related components for reliable vehicle performance.","Components supporting vehicle handling, stability and ride performance.","Automotive electrical and electronic components for various applications.","Components for automotive transmission and drivetrain systems.","Selected body, exterior and supporting automotive components."],
+ enquire:"Enquire →", whyTitle:"Why AutoForgeGlobal?",
+ whyNames:["Global Sourcing","Quality Focus","Competitive Pricing","Global Logistics"],
+ whyDesc:["Access to reliable automotive parts suppliers across international markets.","We focus on dependable products that meet customer requirements and specifications.","Efficient sourcing helps businesses achieve competitive pricing for their automotive parts requirements.","Supporting efficient international movement of products from supplier to customer."],
+ processTitle:"From Source<br>to Shipment", processIntro:"A simple approach to international automotive parts supply.",
+ processNames:["Source","Quality Check","Documentation","Shipment"],
+ processDesc:["Identify suitable products and reliable suppliers based on customer requirements.","Review product specifications, quality requirements and order details.","Coordinate the documentation required for smooth international trade.","Coordinate shipping and delivery from supplier to customer."],
+ marketsTitle:"Global Automotive<br>Supply Network", marketsIntro:"Connecting buyers and suppliers across key international automotive markets.",
+ markets:["India","Middle East","South America","Southeast Asia"],
+ contactTitle:"Request a Quote", contactIntro:"Looking for automobile parts for your business? Tell us what you need and our team will get back to you.",
+ fields:["Full Name *","Company Name","Email Address *","Country","Product Required *","Quantity","Message / Requirements"],
+ footer:"© 2026 AutoForgeGlobal. All rights reserved."
+},
+es: {
+ language:"Idioma", nav:["Inicio","Productos","Nosotros","Contacto"],
+ heroTitle:"Autopartes de calidad.<br>Alcance global.",
+ heroText:"AutoForgeGlobal es un socio confiable en el abastecimiento y suministro global de autopartes de calidad. Conectamos proveedores confiables con clientes en mercados internacionales.",
+ explore:"Explorar productos", quote:"Solicitar cotización", aboutTitle:"Piezas confiables.<br>Suministro global.",
+ aboutIntro:"AutoForgeGlobal conecta proveedores confiables de autopartes con compradores en mercados internacionales.",
+ aboutMain:"Nos especializamos en el abastecimiento y suministro de autopartes de calidad para empresas de todo el mundo, con énfasis en proveedores confiables, precios competitivos y comercio internacional eficiente.",
+ aboutPoints:["Abastecimiento global","Conectamos compradores con proveedores confiables.","Enfoque en calidad","Productos seleccionados según las necesidades de cada empresa.","Comercio internacional","Facilitamos un suministro transfronterizo eficiente."],
+ productsTitle:"Nuestra gama de<br>autopartes", productsIntro:"Explore nuestra gama de autopartes para vehículos de pasajeros, vehículos comerciales y empresas del sector automotriz.",
+ productNames:["Piezas de motor","Componentes de freno","Suspensión y dirección","Electricidad y electrónica","Piezas de transmisión","Carrocería y exterior"],
+ productDesc:["Componentes y piezas de motor para vehículos de pasajeros y comerciales.","Pastillas, discos de freno y componentes relacionados para un rendimiento confiable.","Componentes para el manejo, la estabilidad y el confort del vehículo.","Componentes eléctricos y electrónicos para diversas aplicaciones automotrices.","Componentes para sistemas de transmisión y tren motriz.","Piezas seleccionadas de carrocería, exterior y componentes auxiliares."],
+ enquire:"Consultar →", whyTitle:"¿Por qué AutoForgeGlobal?",
+ whyNames:["Abastecimiento global","Enfoque en calidad","Precios competitivos","Logística global"],
+ whyDesc:["Acceso a proveedores confiables de autopartes en mercados internacionales.","Nos enfocamos en productos confiables que cumplen los requisitos y las especificaciones del cliente.","El abastecimiento eficiente ayuda a las empresas a obtener precios competitivos.","Facilitamos el transporte internacional de productos del proveedor al cliente."],
+ processTitle:"Del origen<br>al envío", processIntro:"Un enfoque sencillo para el suministro internacional de autopartes.",
+ processNames:["Abastecimiento","Control de calidad","Documentación","Envío"],
+ processDesc:["Identificar productos adecuados y proveedores confiables según los requisitos del cliente.","Revisar las especificaciones, los requisitos de calidad y los detalles del pedido.","Coordinar la documentación necesaria para facilitar el comercio internacional.","Coordinar el envío y la entrega del proveedor al cliente."],
+ marketsTitle:"Red global de<br>suministro automotriz", marketsIntro:"Conectamos compradores y proveedores en mercados automotrices internacionales clave.",
+ markets:["India","Oriente Medio","América del Sur","Sudeste Asiático"],
+ contactTitle:"Solicitar cotización", contactIntro:"¿Busca autopartes para su empresa? Cuéntenos qué necesita y nuestro equipo se pondrá en contacto con usted.",
+ fields:["Nombre completo *","Nombre de la empresa","Correo electrónico *","País","Producto requerido *","Cantidad","Mensaje / Requisitos"],
+ footer:"© 2026 AutoForgeGlobal. Todos los derechos reservados."
+},
+pt: {
+ language:"Idioma", nav:["Início","Produtos","Sobre","Contato"],
+ heroTitle:"Autopeças de qualidade.<br>Alcance global.",
+ heroText:"A AutoForgeGlobal é uma parceira confiável no fornecimento e na busca global de autopeças de qualidade. Conectamos fornecedores confiáveis a clientes em mercados internacionais.",
+ explore:"Explorar produtos", quote:"Solicitar cotação", aboutTitle:"Peças confiáveis.<br>Fornecimento global.",
+ aboutIntro:"A AutoForgeGlobal conecta fornecedores confiáveis de autopeças a compradores em mercados internacionais.",
+ aboutMain:"Somos especializados na busca e no fornecimento de autopeças de qualidade para empresas em todo o mundo, com foco em fornecedores confiáveis, preços competitivos e comércio internacional eficiente.",
+ aboutPoints:["Fornecimento global","Ligamos compradores a fornecedores confiáveis.","Foco na qualidade","Produtos selecionados conforme as necessidades de cada empresa.","Comércio internacional","Apoiamos um fornecimento internacional eficiente."],
+ productsTitle:"Nossa linha de<br>autopeças", productsIntro:"Conheça nossa linha de autopeças para veículos de passeio, veículos comerciais e empresas do setor automotivo.",
+ productNames:["Peças de motor","Componentes de freio","Suspensão e direção","Elétrica e eletrônica","Peças de transmissão","Carroceria e exterior"],
+ productDesc:["Componentes e peças de motor para veículos de passeio e comerciais.","Pastilhas, discos de freio e componentes relacionados para um desempenho confiável.","Componentes para dirigibilidade, estabilidade e conforto do veículo.","Componentes elétricos e eletrônicos para diversas aplicações automotivas.","Componentes para sistemas de transmissão e trem de força.","Peças selecionadas de carroceria, exterior e componentes auxiliares."],
+ enquire:"Consultar →", whyTitle:"Por que AutoForgeGlobal?",
+ whyNames:["Fornecimento global","Foco na qualidade","Preços competitivos","Logística global"],
+ whyDesc:["Acesso a fornecedores confiáveis de autopeças em mercados internacionais.","Focamos em produtos confiáveis que atendem aos requisitos e às especificações do cliente.","O fornecimento eficiente ajuda empresas a obter preços competitivos.","Apoiamos o transporte internacional eficiente dos produtos do fornecedor ao cliente."],
+ processTitle:"Da origem<br>ao envio", processIntro:"Uma abordagem simples para o fornecimento internacional de autopeças.",
+ processNames:["Fornecimento","Controle de qualidade","Documentação","Envio"],
+ processDesc:["Identificar produtos adequados e fornecedores confiáveis conforme os requisitos do cliente.","Analisar especificações, requisitos de qualidade e detalhes do pedido.","Coordenar a documentação necessária para facilitar o comércio internacional.","Coordenar o transporte e a entrega do fornecedor ao cliente."],
+ marketsTitle:"Rede global de<br>fornecimento automotivo", marketsIntro:"Conectamos compradores e fornecedores nos principais mercados automotivos internacionais.",
+ markets:["Índia","Oriente Médio","América do Sul","Sudeste Asiático"],
+ contactTitle:"Solicitar cotação", contactIntro:"Procurando autopeças para sua empresa? Conte-nos do que precisa e nossa equipe entrará em contato.",
+ fields:["Nome completo *","Nome da empresa","E-mail *","País","Produto desejado *","Quantidade","Mensagem / Requisitos"],
+ footer:"© 2026 AutoForgeGlobal. Todos os direitos reservados."
+}
+};
+
+function applyLanguage(lang) {
+ const t = pageTranslations[lang] || pageTranslations.en;
+ document.documentElement.lang = lang;
+ document.querySelector('[data-lang="label"]').textContent = t.language;
+ document.querySelectorAll('nav a').forEach((el,i)=>el.textContent=t.nav[i]);
+ document.querySelector('.hero h1').innerHTML=t.heroTitle;
+ document.querySelector('.hero-content > p').textContent=t.heroText;
+ document.querySelector('.btn-primary').textContent=t.explore;
+ document.querySelector('.btn-secondary').textContent=t.quote;
+ document.querySelector('.about .section-title').innerHTML=t.aboutTitle;
+ document.querySelector('.about > div:first-child .section-intro').textContent=t.aboutIntro;
+ document.querySelector('.about-main-text').textContent=t.aboutMain;
+ const aboutPoints=document.querySelectorAll('.about-point');
+ aboutPoints.forEach((el,i)=>{el.querySelector('h3').textContent=t.aboutPoints[i*2];el.querySelector('p').textContent=t.aboutPoints[i*2+1];});
+ document.querySelector('.products .section-title').innerHTML=t.productsTitle;
+ document.querySelector('.products > .section-intro').textContent=t.productsIntro;
+ document.querySelectorAll('.product-card').forEach((el,i)=>{el.querySelector('h3').textContent=t.productNames[i];el.querySelector('p').textContent=t.productDesc[i];el.querySelector('a').textContent=t.enquire;});
+ document.querySelector('.why-us .section-title').textContent=t.whyTitle;
+ document.querySelectorAll('.why-card').forEach((el,i)=>{el.querySelector('h3').textContent=t.whyNames[i];el.querySelector('p').textContent=t.whyDesc[i];});
+ document.querySelector('.process .section-title').innerHTML=t.processTitle;
+ document.querySelector('.process .section-intro').textContent=t.processIntro;
+ document.querySelectorAll('.process-step').forEach((el,i)=>{el.querySelector('h3').textContent=t.processNames[i];el.querySelector('p').textContent=t.processDesc[i];});
+ document.querySelector('.markets .section-title').innerHTML=t.marketsTitle;
+ document.querySelector('.markets .section-intro').textContent=t.marketsIntro;
+ document.querySelectorAll('.market').forEach((el,i)=>el.textContent=t.markets[i]);
+ document.querySelector('.contact .section-title').textContent=t.contactTitle;
+ document.querySelector('.contact .section-intro').textContent=t.contactIntro;
+ const fields=document.querySelectorAll('.contact input, .contact textarea');
+ fields.forEach((el,i)=>el.placeholder=t.fields[i]);
+ document.querySelector('footer p').textContent=t.footer;
+ document.title = lang==='es' ? 'AutoForgeGlobal | Autopartes de calidad. Alcance global.' : lang==='pt' ? 'AutoForgeGlobal | Autopeças de qualidade. Alcance global.' : 'AutoForgeGlobal | Quality Auto Parts. Global Reach.';
+ const meta=document.querySelector('meta[name="description"]');
+ if(meta) meta.content = lang==='es' ? 'AutoForgeGlobal conecta proveedores confiables de autopartes con clientes en mercados internacionales.' : lang==='pt' ? 'A AutoForgeGlobal conecta fornecedores confiáveis de autopeças a clientes em mercados internacionais.' : 'AutoForgeGlobal connects reliable automobile parts suppliers with customers across international markets.';
+}
+const languageSelect=document.getElementById('languageSelect');
+const savedLanguage = localStorage.getItem('autoforgeglobal-language') || 'en';
+languageSelect.value = savedLanguage;
+languageSelect.addEventListener('change',()=>{
+  localStorage.setItem('autoforgeglobal-language', languageSelect.value);
+  applyLanguage(languageSelect.value);
+});
+applyLanguage(savedLanguage);
+</script>
 
 </body>
 </html>
