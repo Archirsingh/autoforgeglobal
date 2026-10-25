@@ -718,6 +718,58 @@
                 padding: 22px !important;
             }
         }
+        
+        .form-success {
+            margin-top: 20px;
+            padding: 24px;
+            border: 1px solid #d7e8dc;
+            border-radius: 10px;
+            background: #f4faf6;
+            color: #243b2e;
+            animation: successFadeIn 0.5s ease-out;
+        }
+
+        .form-success h3 {
+            margin-top: 0;
+            margin-bottom: 10px;    
+        }
+
+        .form-success p {
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .form-success button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            background: #17212b;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .form-success button:hover {
+            background: #d71920;
+            transform: translateY(-2px);
+        }
+
+        @keyframes successFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ensure hidden form sections stay hidden */
+        #contact form[hidden],
+        #form-success[hidden] {
+        display: none !important;
+        }
 
     </style>
 </head>
@@ -1034,30 +1086,37 @@
             Tell us what you need and our team will get back to you.
         </p>
 
-        <form>
+        <form action="https://formspree.io/f/xqpeyjdl" method="POST">
 
             <input type="text"
-                   placeholder="Full Name *"
-                   required>
+                    name="full_name"
+                    placeholder="Full Name *"
+                    required>
 
             <input type="text"
-                   placeholder="Company Name">
+                    name="company_name"
+                    placeholder="Company Name">
 
             <input type="email"
-                   placeholder="Email Address *"
-                   required>
+                    name="email"
+                    placeholder="Email Address *"
+                    required>
 
             <input type="text"
-                   placeholder="Country">
+                    name="country"
+                    placeholder="Country">
 
             <input type="text"
-                   placeholder="Product Required *"
-                   required>
+                    name="product_required"
+                    placeholder="Product Required *"
+                    required>    
 
             <input type="text"
-                   placeholder="Quantity">
+                    name="quantity"
+                    placeholder="Quantity">
 
             <textarea
+                name="message"
                 placeholder="Message / Requirements"></textarea>
 
             <button type="submit">
@@ -1065,6 +1124,12 @@
             </button>
 
         </form>
+        
+        <div id="form-success" class="form-success" role="status" aria-live="polite" hidden>
+        <h3>Thank you for your enquiry!</h3>
+        <p>Your quote request has been submitted successfully. We'll get back to you soon.</p>
+        <button type="button" id="new-quote-button">Send Another Enquiry</button>
+        </div>
 
     </div>
 
@@ -1203,6 +1268,71 @@ languageSelect.addEventListener('change',()=>{
   applyLanguage(languageSelect.value);
 });
 applyLanguage(savedLanguage);
+</script>
+
+
+<script>
+const quoteForm = document.querySelector('#contact form');
+const formSuccess = document.getElementById('form-success');
+const newQuoteButton = document.getElementById('new-quote-button');
+
+if (quoteForm && formSuccess && newQuoteButton) {
+    quoteForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const submitButton = quoteForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(quoteForm.action, {
+        method: 'POST',
+        body: new FormData(quoteForm),
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      quoteForm.reset();
+      quoteForm.hidden = true;
+      formSuccess.hidden = false;
+      formSuccess.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } catch (error) {
+      alert('Sorry, your request could not be submitted. Please try again.');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+
+  newQuoteButton.addEventListener('click', function () {
+    quoteForm.reset();
+    formSuccess.hidden = true;
+    quoteForm.hidden = false;
+    quoteForm.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+
+  document.querySelectorAll('a[href="#contact"], a[href="#top"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      quoteForm.reset();
+      quoteForm.hidden = false;
+      formSuccess.hidden = true;
+    });
+  });
+
+}
 </script>
 
 </body>
