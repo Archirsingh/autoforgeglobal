@@ -1212,6 +1212,462 @@ body {
             color: #d0d0d0;
         }
 
+
+
+        /* ==========================================================
+           AUTOFORGE MOBILE REDESIGN
+           Desktop styles above remain unchanged.
+        ========================================================== */
+
+        .mobile-menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 800px) {
+            html, body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            header {
+                position: relative;
+                z-index: 1000;
+                width: 100%;
+                height: 88px;
+                min-height: 88px;
+                padding: 10px 6%;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                gap: 12px;
+                background: #08090b;
+                border-bottom: 1px solid #292929;
+            }
+
+            header .logo {
+                flex: 0 1 auto;
+                min-width: 0;
+            }
+
+            header .logo img {
+                display: block;
+                width: clamp(175px, 48vw, 230px);
+                max-width: 100%;
+                height: auto;
+                max-height: 66px;
+                object-fit: contain;
+            }
+
+            .mobile-menu-toggle {
+                flex: 0 0 44px;
+                width: 44px;
+                height: 44px;
+                padding: 9px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                border: 0;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            .mobile-menu-toggle span {
+                display: block;
+                width: 27px;
+                height: 2px;
+                border-radius: 2px;
+                background: #ffffff;
+                transition: transform .25s ease, opacity .25s ease;
+            }
+
+            header.menu-open .mobile-menu-toggle span:first-child {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            header.menu-open .mobile-menu-toggle span:nth-child(2) {
+                opacity: 0;
+            }
+
+            header.menu-open .mobile-menu-toggle span:last-child {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            header nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1001;
+                width: 100%;
+                padding: 18px 6% 22px;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                background: #08090b;
+                border-bottom: 1px solid #333;
+                box-shadow: 0 12px 24px rgba(0,0,0,.4);
+            }
+
+            header.menu-open nav {
+                display: flex;
+            }
+
+            header nav a {
+                display: block;
+                padding: 13px 0;
+                font-family: Barlow, Arial, sans-serif;
+                font-size: 17px;
+                line-height: 1.3;
+                border-bottom: 1px solid #242424;
+            }
+
+            header nav a:first-child::after {
+                display: none;
+            }
+
+            .language-selector {
+                display: flex;
+                width: 100%;
+                margin: 15px 0 0;
+                padding-top: 5px;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .language-selector label {
+                display: block;
+                color: #cccccc !important;
+                font-size: 14px;
+            }
+
+            .language-selector select {
+                max-width: 150px;
+                padding: 9px 12px;
+                color: #ffffff;
+                background: #17181a;
+                border: 1px solid #555;
+                border-radius: 3px;
+                font-size: 14px;
+            }
+
+            /* Tall, image-led mobile hero */
+            .hero {
+                position: relative;
+                isolation: isolate;
+                display: flex;
+                align-items: flex-start;
+                width: 100%;
+                min-height: min(780px, calc(100svh - 88px));
+                padding: clamp(58px, 10vh, 100px) 6% 55px;
+                background-image:
+                    linear-gradient(
+                        180deg,
+                        rgba(0,0,0,.60) 0%,
+                        rgba(0,0,0,.50) 35%,
+                        rgba(0,0,0,.78) 72%,
+                        rgba(0,0,0,.96) 100%
+                    ),
+                    url("images/hero.png");
+                background-size: cover;
+                background-position: 62% center;
+                background-repeat: no-repeat;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                max-width: 620px;
+            }
+
+            .hero h1 {
+                margin: 0 0 22px;
+                font-family: Oswald, Impact, sans-serif;
+                font-size: clamp(49px, 12.5vw, 76px);
+                font-weight: 700;
+                line-height: .99;
+                letter-spacing: .005em;
+                text-transform: uppercase;
+                overflow-wrap: normal;
+            }
+
+            .hero h1 span {
+                display: inline-block;
+                color: var(--primary-red);
+            }
+
+            .hero p {
+                max-width: 520px;
+                margin: 0 0 28px;
+                color: #d0d0d0;
+                font-family: Barlow, Arial, sans-serif;
+                font-size: clamp(17px, 4.5vw, 21px);
+                line-height: 1.55;
+            }
+
+            .hero p strong {
+                display: inline-block;
+                margin-bottom: 8px;
+                color: #ffffff;
+                font-size: 1.12em;
+                font-weight: 600;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                width: 100%;
+                max-width: 440px;
+            }
+
+            .buttons .btn {
+                display: flex;
+                width: 100%;
+                min-height: 58px;
+                padding: 15px 18px;
+                justify-content: center;
+                text-align: center;
+                font-family: Barlow, Arial, sans-serif;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            /* Two-column value strip */
+            .feature-strip {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0;
+                min-height: 0;
+                padding: 12px 5%;
+                background: #08090b;
+            }
+
+            .feature-item {
+                min-width: 0;
+                min-height: 64px;
+                padding: 10px 7px;
+                justify-content: flex-start;
+                gap: 10px;
+                border-right: 0;
+                color: #ffffff;
+                font-family: Barlow, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.25;
+            }
+
+            .feature-icon {
+                flex: 0 0 22px;
+                color: var(--primary-red);
+                font-size: 23px;
+                text-align: center;
+            }
+
+            /* Consistent mobile section spacing */
+            section {
+                padding: 48px 6%;
+            }
+
+            .about {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 18px;
+                min-height: 0;
+                padding: 48px 6%;
+            }
+
+            .about .section-title,
+            .products .section-title,
+            .section-title {
+                font-family: Oswald, Impact, sans-serif;
+                font-size: clamp(30px, 8vw, 43px);
+                font-weight: 600;
+                line-height: 1.08;
+                letter-spacing: .01em;
+                text-transform: uppercase;
+                margin-bottom: 16px;
+            }
+
+            .about .section-intro,
+            .about-main-text,
+            .section-intro {
+                color: #c5c5c5;
+                font-family: Barlow, Arial, sans-serif;
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .about-box {
+                padding: 0;
+                margin: 0;
+            }
+
+            .products {
+                padding: 48px 5%;
+            }
+
+            .product-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+                margin-top: 22px;
+            }
+
+            .product-card {
+                min-width: 0;
+                min-height: 0;
+                aspect-ratio: 1 / 1.08;
+                padding: 12px;
+                border-radius: 3px;
+            }
+
+            .product-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .product-number {
+                margin-bottom: 5px;
+                font-size: 9px;
+                line-height: 1.2;
+            }
+
+            .product-card h3 {
+                max-width: calc(100% - 20px);
+                font-family: Oswald, Impact, sans-serif;
+                font-size: clamp(15px, 4vw, 20px);
+                line-height: 1.1;
+                overflow-wrap: anywhere;
+            }
+
+            .product-card a {
+                right: 7px;
+                bottom: 7px;
+                width: 25px;
+                height: 25px;
+                font-size: 17px;
+            }
+
+            .why-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 12px !important;
+                margin-top: 24px !important;
+            }
+
+            .why-card {
+                min-height: 0 !important;
+                padding: 16px !important;
+            }
+
+            .why-card h3,
+            .process-step h3 {
+                font-family: Barlow, Arial, sans-serif;
+                font-size: 17px;
+                line-height: 1.25;
+            }
+
+            .why-card p,
+            .process-step p {
+                font-family: Barlow, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .process-step {
+                padding: 18px 8px;
+            }
+
+            .market-list {
+                gap: 9px;
+                margin-top: 24px;
+            }
+
+            .market {
+                padding: 10px 13px;
+                font-size: 14px;
+            }
+
+            .contact input,
+            .contact textarea {
+                padding: 14px;
+                font-size: 16px;
+            }
+
+            footer {
+                padding: 32px 6%;
+                gap: 18px;
+            }
+
+            footer .logo img {
+                width: min(190px, 70vw);
+                height: auto;
+            }
+        }
+
+        @media (max-width: 380px) {
+            header .logo img {
+                width: 165px;
+            }
+
+            .hero {
+                padding-top: 52px;
+                background-position: 59% center;
+            }
+
+            .hero h1 {
+                font-size: clamp(44px, 12vw, 54px);
+            }
+
+            .feature-item {
+                font-size: 12px;
+                gap: 7px;
+            }
+
+            .product-card {
+                padding: 9px;
+            }
+
+            .product-number {
+                font-size: 8px;
+            }
+
+            .product-card h3 {
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 801px) {
+            .mobile-menu-toggle {
+                display: none !important;
+            }
+        }
+
+    
+        /* Match the header to the black background baked into the logo image */
+        @media (max-width: 800px) {
+            header {
+                background-color: #000000 !important;
+            }
+
+            header .logo,
+            header .logo img {
+                background-color: #000000 !important;
+            }
+
+            header nav {
+                background-color: #000000 !important;
+            }
+        }
+
     </style>
 </head>
 
@@ -1221,21 +1677,26 @@ body {
     <div class="logo">
         <img src="images/logo.png" alt="AutoForgeGlobal">
     </div>
+    <button class="mobile-menu-toggle" type="button"
+            aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="mobile-navigation">
+        <span></span><span></span><span></span>
+    </button>
     
-    <nav>
+    <nav id="mobile-navigation">
         <a href="#home">Home</a>
         <a href="#products">Products</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <div class="language-selector">
+            <label for="languageSelect" data-lang="label">Language</label>
+            <select id="languageSelect" aria-label="Select website language">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="pt">Português</option>
+            </select>
+        </div>
     </nav>
-    <div class="language-selector">
-        <label for="languageSelect" data-lang="label">Language</label>
-        <select id="languageSelect" aria-label="Select website language">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="pt">Português</option>
-        </select>
-    </div>
 </header>
 
 
@@ -1369,9 +1830,9 @@ body {
 
         <div class="product-card">
             <img src="images/braking.png" alt="Brake pads and brake discs displayed in a studio setting, with metallic surfaces and dramatic lighting against a dark background, creating a professional automotive parts presentation">
-            <span class="product-number">
+            <!--span class="product-number">
                 01 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Braking</h3>
             <p>
                 Brake pads, discs and related components.
@@ -1383,9 +1844,9 @@ body {
 
         <div class="product-card">
             <img src="images/lighting.png" alt="Vehicle lighting components arranged in a studio, including polished lamp parts with a dark surrounding and soft red highlights, giving a clean industrial automotive product shot mood">
-            <span class="product-number">
+            <!--span class="product-number">
                 02 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Lighting</h3>
             <p>
                 Headlights, taillights and related components.
@@ -1397,9 +1858,9 @@ body {
         
         <div class="product-card">
             <img src="images/sensors.png" alt="Automotive sensors and related components displayed in a professional setting">
-            <span class="product-number">
+            <!--span class="product-number">
                 03 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Sensors</h3>
             <p>
                 Advanced automotive sensors for enhanced vehicle performance.
@@ -1411,9 +1872,9 @@ body {
 
         <div class="product-card">
             <img src="images/filters.png" alt="Air filter, oil filter, and cabin filter components displayed together in a dark studio, with metallic and textured surfaces and subtle red lighting, presenting a professional automotive maintenance product range">
-            <span class="product-number">
+            <!--span class="product-number">
                 04 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Filters</h3>
             <p>
                 Air, oil and cabin filters for optimal engine performance.
@@ -1425,9 +1886,9 @@ body {
 
         <div class="product-card">
             <img src="images/accessories.png" alt="Automotive accessories and related components displayed in a professional setting">
-            <span class="product-number">
+            <!--span class="product-number">
                 05 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Accessories</h3>
             <p>
                 Automotive accessories and related components.
@@ -1439,9 +1900,9 @@ body {
 
         <div class="product-card">
             <img src="images/clutch_plates.png" alt="Clutch plates and related components displayed in a professional setting">
-            <span class="product-number">
+            <!--span class="product-number">
                 06 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Clutch Plates</h3>
             <p>
                 High-performance clutch plates for reliable power transmission.
@@ -1453,9 +1914,9 @@ body {
 
         <div class="product-card">
             <img src="images/suspension_steering.png" alt="Suspension and steering components displayed in a professional setting">
-            <span class="product-number">
+            <!--span class="product-number">
                 07 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Suspension & Steering</h3>
             <p>
                 Suspension and steering components for optimal vehicle handling.
@@ -1467,9 +1928,9 @@ body {
 
         <div class="product-card">
             <img src="images/engine_parts.png" alt="Engine components arranged in a dark studio: a piston, connecting rod, spark plug, and valve pieces with metallic surfaces and red accent lighting. The parts are displayed in a precise, industrial arrangement against a black background, creating a polished, high-performance automotive product shot with a professional and technical mood.">
-            <span class="product-number">
+            <!--span class="product-number">
                 08 / AUTOMOTIVE PARTS
-            </span>
+            </span-->
             <h3>Engine Parts</h3>
             <p>
                 High-quality engine parts for optimal performance and durability.
@@ -1683,6 +2144,7 @@ body {
 const pageTranslations = {
 en: {
  language:"Language", nav:["Home","Products","About","Contact"],
+ featureNames:["Global Sourcing","Quality Focused","Competitive Pricing","Reliable Logistics"],
  heroTitle:"Auto Forge<br><span>Global.</span>",
  heroText:"<strong>Quality auto parts. Global reach.</strong><br>Connecting reliable suppliers with automotive businesses across the world.",
  explore:"Explore Products", quote:"Request a Quote", aboutTitle:"Reliable Parts.<br>Global Supply.",
@@ -1706,22 +2168,23 @@ en: {
 },
 es: {
  language:"Idioma", nav:["Inicio","Productos","Nosotros","Contacto"],
- heroTitle:"Autopartes de calidad.<br>Alcance global.",
- heroText:"AutoForgeGlobal es un socio confiable en el abastecimiento y suministro global de autopartes de calidad. Conectamos proveedores confiables con clientes en mercados internacionales.",
+ featureNames:["Abastecimiento global","Enfoque en la calidad","Precios competitivos","Logística confiable"],
+ heroTitle:"Auto Forge<br><span>Global.</span>",
+ heroText:"<strong>Autopartes de calidad. Alcance global.</strong><br>Conectamos proveedores confiables con empresas del sector automotriz en todo el mundo.",
  explore:"Explorar productos", quote:"Solicitar cotización", aboutTitle:"Piezas confiables.<br>Suministro global.",
  aboutIntro:"AutoForgeGlobal conecta proveedores confiables de autopartes con compradores en mercados internacionales.",
  aboutMain:"Nos especializamos en el abastecimiento y suministro de autopartes de calidad para empresas de todo el mundo, con énfasis en proveedores confiables, precios competitivos y comercio internacional eficiente.",
  aboutPoints:["Abastecimiento global","Conectamos compradores con proveedores confiables.","Enfoque en calidad","Productos seleccionados según las necesidades de cada empresa.","Comercio internacional","Facilitamos un suministro transfronterizo eficiente."],
  productsTitle:"Nuestra gama de<br>autopartes", productsIntro:"Explore nuestra gama de autopartes para vehículos de pasajeros, vehículos comerciales y empresas del sector automotriz.",
- productNames:["Piezas de motor","Componentes de freno","Suspensión y dirección","Electricidad y electrónica","Piezas de transmisión","Carrocería y exterior"],
- productDesc:["Componentes y piezas de motor para vehículos de pasajeros y comerciales.","Pastillas, discos de freno y componentes relacionados para un rendimiento confiable.","Componentes para el manejo, la estabilidad y el confort del vehículo.","Componentes eléctricos y electrónicos para diversas aplicaciones automotrices.","Componentes para sistemas de transmisión y tren motriz.","Piezas seleccionadas de carrocería, exterior y componentes auxiliares."],
- enquire:"Consultar →", whyTitle:"¿Por qué AutoForgeGlobal?",
+ productNames:["Piezas de freno","Iluminación","Sensores","Filtros","Accesorios","Discos de embrague","Piezas de suspensión","Componentes del motor"],
+ productDesc:["Componentes y piezas de motor para vehículos de pasajeros y comerciales.","Pastillas, discos de freno y componentes relacionados para un rendimiento confiable.","Componentes que contribuyen al manejo, la estabilidad y el confort del vehículo.","Componentes eléctricos y electrónicos para diversas aplicaciones automotrices.","Componentes para sistemas de transmisión y tren motriz.","Piezas seleccionadas de carrocería, exterior y componentes auxiliares."],
+ enquire:"↗", whyTitle:"¿Por qué AutoForgeGlobal?",
  whyNames:["Abastecimiento global","Enfoque en calidad","Precios competitivos","Logística global"],
- whyDesc:["Acceso a proveedores confiables de autopartes en mercados internacionales.","Nos enfocamos en productos confiables que cumplen los requisitos y las especificaciones del cliente.","El abastecimiento eficiente ayuda a las empresas a obtener precios competitivos.","Facilitamos el transporte internacional de productos del proveedor al cliente."],
+ whyDesc:["Acceso a proveedores confiables de autopartes en mercados internacionales.","Nos enfocamos en productos confiables que cumplen los requisitos y las especificaciones del cliente.","El abastecimiento eficiente ayuda a las empresas a obtener precios competitivos para sus necesidades de autopartes.","Facilitamos el movimiento internacional eficiente de productos desde el proveedor hasta el cliente."],
  processTitle:"Del origen<br>al envío", processIntro:"Un enfoque sencillo para el suministro internacional de autopartes.",
  processNames:["Abastecimiento","Control de calidad","Documentación","Envío"],
  processDesc:["Identificar productos adecuados y proveedores confiables según los requisitos del cliente.","Revisar las especificaciones, los requisitos de calidad y los detalles del pedido.","Coordinar la documentación necesaria para facilitar el comercio internacional.","Coordinar el envío y la entrega del proveedor al cliente."],
- marketsTitle:"Red global de<br>suministro automotriz", marketsIntro:"Conectamos compradores y proveedores en mercados automotrices internacionales clave.",
+ marketsTitle:"Red global de<br>suministro automotriz", marketsIntro:"Conectamos compradores y proveedores en los principales mercados automotrices internacionales.",
  markets:["India","Oriente Medio","América del Sur","Sudeste Asiático"],
  contactTitle:"Solicitar cotización", contactIntro:"¿Busca autopartes para su empresa? Cuéntenos qué necesita y nuestro equipo se pondrá en contacto con usted.",
  fields:["Nombre completo *","Nombre de la empresa","Correo electrónico *","País","Producto requerido *","Cantidad","Mensaje / Requisitos"],
@@ -1729,18 +2192,19 @@ es: {
 },
 pt: {
  language:"Idioma", nav:["Início","Produtos","Sobre","Contato"],
- heroTitle:"Autopeças de qualidade.<br>Alcance global.",
- heroText:"A AutoForgeGlobal é uma parceira confiável no fornecimento e na busca global de autopeças de qualidade. Conectamos fornecedores confiáveis a clientes em mercados internacionais.",
+ featureNames:["Fornecimento global","Foco na qualidade","Preços competitivos","Logística confiável"],
+ heroTitle:"Auto Forge<br><span>Global.</span>",
+ heroText:"<strong>Autopeças de qualidade. Alcance global.</strong><br>Conectamos fornecedores confiáveis a empresas do setor automotivo em todo o mundo.",
  explore:"Explorar produtos", quote:"Solicitar cotação", aboutTitle:"Peças confiáveis.<br>Fornecimento global.",
  aboutIntro:"A AutoForgeGlobal conecta fornecedores confiáveis de autopeças a compradores em mercados internacionais.",
  aboutMain:"Somos especializados na busca e no fornecimento de autopeças de qualidade para empresas em todo o mundo, com foco em fornecedores confiáveis, preços competitivos e comércio internacional eficiente.",
  aboutPoints:["Fornecimento global","Ligamos compradores a fornecedores confiáveis.","Foco na qualidade","Produtos selecionados conforme as necessidades de cada empresa.","Comércio internacional","Apoiamos um fornecimento internacional eficiente."],
  productsTitle:"Nossa linha de<br>autopeças", productsIntro:"Conheça nossa linha de autopeças para veículos de passeio, veículos comerciais e empresas do setor automotivo.",
- productNames:["Peças de motor","Componentes de freio","Suspensão e direção","Elétrica e eletrônica","Peças de transmissão","Carroceria e exterior"],
- productDesc:["Componentes e peças de motor para veículos de passeio e comerciais.","Pastilhas, discos de freio e componentes relacionados para um desempenho confiável.","Componentes para dirigibilidade, estabilidade e conforto do veículo.","Componentes elétricos e eletrônicos para diversas aplicações automotivas.","Componentes para sistemas de transmissão e trem de força.","Peças selecionadas de carroceria, exterior e componentes auxiliares."],
- enquire:"Consultar →", whyTitle:"Por que AutoForgeGlobal?",
+ productNames:["Peças de freio","Iluminação","Sensores","Filtros","Acessórios","Discos de embreagem","Peças de suspensão","Componentes do motor"],
+ productDesc:["Componentes e peças de motor para veículos de passeio e comerciais.","Pastilhas, discos de freio e componentes relacionados para um desempenho confiável.","Componentes que contribuem para a dirigibilidade, estabilidade e conforto do veículo.","Componentes elétricos e eletrônicos para diversas aplicações automotivas.","Componentes para sistemas de transmissão e trem de força.","Peças selecionadas de carroceria, exterior e componentes auxiliares."],
+ enquire:"↗", whyTitle:"Por que AutoForgeGlobal?",
  whyNames:["Fornecimento global","Foco na qualidade","Preços competitivos","Logística global"],
- whyDesc:["Acesso a fornecedores confiáveis de autopeças em mercados internacionais.","Focamos em produtos confiáveis que atendem aos requisitos e às especificações do cliente.","O fornecimento eficiente ajuda empresas a obter preços competitivos.","Apoiamos o transporte internacional eficiente dos produtos do fornecedor ao cliente."],
+ whyDesc:["Acesso a fornecedores confiáveis de autopeças em mercados internacionais.","Focamos em produtos confiáveis que atendem aos requisitos e às especificações do cliente.","O fornecimento eficiente ajuda empresas a obter preços competitivos para suas necessidades de autopeças.","Apoiamos a movimentação internacional eficiente dos produtos do fornecedor ao cliente."],
  processTitle:"Da origem<br>ao envio", processIntro:"Uma abordagem simples para o fornecimento internacional de autopeças.",
  processNames:["Fornecimento","Controle de qualidade","Documentação","Envio"],
  processDesc:["Identificar produtos adequados e fornecedores confiáveis conforme os requisitos do cliente.","Analisar especificações, requisitos de qualidade e detalhes do pedido.","Coordenar a documentação necessária para facilitar o comércio internacional.","Coordenar o transporte e a entrega do fornecedor ao cliente."],
@@ -1757,6 +2221,7 @@ function applyLanguage(lang) {
  document.documentElement.lang = lang;
  document.querySelector('[data-lang="label"]').textContent = t.language;
  document.querySelectorAll('nav a').forEach((el,i)=>el.textContent=t.nav[i]);
+ document.querySelectorAll('.feature-item').forEach((el,i)=>{ const label=el.querySelector('span:last-child'); if(label) label.textContent=t.featureNames[i]; });
  document.querySelector('.hero h1').innerHTML=t.heroTitle;
  document.querySelector('.hero-content > p').innerHTML=t.heroText;
  document.querySelector('.btn-primary').textContent=t.explore;
@@ -1781,6 +2246,10 @@ function applyLanguage(lang) {
  document.querySelector('.contact .section-intro').textContent=t.contactIntro;
  const fields=document.querySelectorAll('.contact input, .contact textarea');
  fields.forEach((el,i)=>el.placeholder=t.fields[i]);
+ const formButton = document.querySelector('#contact form button[type="submit"]');
+    if (formButton) {
+        formButton.textContent = t.quote;
+    }
  document.querySelector('footer p').textContent=t.footer;
  document.title = lang==='es' ? 'AutoForgeGlobal | Autopartes de calidad. Alcance global.' : lang==='pt' ? 'AutoForgeGlobal | Autopeças de qualidade. Alcance global.' : 'AutoForgeGlobal | Quality Auto Parts. Global Reach.';
  const meta=document.querySelector('meta[name="description"]');
@@ -1859,6 +2328,37 @@ if (quoteForm && formSuccess && newQuoteButton) {
   });
 
 }
+</script>
+
+
+<script>
+(function () {
+    const header = document.querySelector('header');
+    const menuButton = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-navigation');
+
+    if (!header || !menuButton || !mobileNav) return;
+
+    function closeMenu() {
+        header.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    menuButton.addEventListener('click', function () {
+        const isOpen = header.classList.toggle('menu-open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 800) closeMenu();
+    });
+})();
 </script>
 
 </body>
